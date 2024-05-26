@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC >
+
+<html lang="es">
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- Following part is mathjax, for latex-->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
+    <!-- This part is for jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <!-- This part is to load main.js -->
+    <script type="text/javascript" src="../main.js"></script>
+
+    
+
+
+    <!-- Next part is for new coomands -->
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    
+    <!-- This part restart counter of cards to start at n+1 -->
+    <style>
+      /* body.number-title
+      {
+      counter-reset: temaCounter 1 subsectioncounter ;
+      } */
+      body.fondo-body{
+        counter-reset: temaCounter 1 sectionCounter;
+      }
+
+      /* h1.page-number-title
+      {
+      counter-reset: sectionCounter 0;
+      }  */
+
+      h1.tema-number-title
+          {
+          counter-reset: sectionCounter 0;
+          } 
+
+      h1.number-title
+      {
+      counter-reset: subsectionCounter;
+      /* counter-reset: subsectionCounter; */
+      }
+
+    </style>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" , href="../style.css" />
+    <!-- Top Menu  -->
+    
+          
+        <header class="main-header">
+        
+          <div class="logo_superior_umar">
+          <a href="https://www.umar.mx" target="_blank"><img src="../Imagenes/umar_logo_hd.webp" alt="Logo_UMAR" width="110%" height="auto"></a>
+          </div>
+          <div class="contenedor_titulo">
+            <div class="title">Programación II</div>
+            <div class="subtitle">Licenciatura en Actuaría</div>
+            <div class="subsubtitle">Universidad del Mar, campus Huatulco</div>
+          <!-- <div class="subsubtitle"><a href="https://www.umar.mx/web/ensenanza/licenciaturas/licenciatura_en_administracion_turistica" target="_blank">Licenciatura en Administración Turística</a> </div>    -->
+      
+          </div>
+
+      
+        </header>
+
+        <nav class="top-nav">
+          <ul>
+            <li> <a href="https://pablojhh.github.io/ProgramacionDOS/Home.html"> Inicio  </a> </li>
+            <li> <a href="https://pablojhh.github.io/ProgramacionDOS/Informacion_General.html"> Información </a> </li>
+            <li> <a href="https://pablojhh.github.io/ProgramacionDOS/Notas.html"> Notas  </a> </li>
+            <li> <a href="https://pablojhh.github.io/ProgramacionDOS/Quizes.html"> Quizes  </a> </li>
+            <li> <a href="https://pablojhh.github.io/ProgramacionDOS/Practicas.html">Prácticas</a> </li>
+            <li> <a href="https://pablojhh.github.io/ProgramacionDOS/Enlaces_externos.html"> Links </a> </li>
+          </ul>
+          </nav>
+       
+        
+        <!-- 
+          <nav class="small-nav" align=right>
+            <button onclick="myFunction()">Claro/Obscuro 
+          </nav> 
+        -->
+
+      <!-- This part is for title in tab-->
+            
+      <title>Práctica 1 </title>
+      </head>  
+
+
+
+  <body class="fondo-body" ><h1 class="page-title-practica"> Prácticas 1 </h1>   
+
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que reciba como argumento dos números enteros positivos $a$ y $b$ y determine el cociente entero (división sin punto decimal) de $a$ entre $b$.
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que reciba como argumento dos números enteros positivos $a$ y $b$ y determine el producto $a$ por $b$.
+      </p>
+      <!-- <p><b>Sugerencia:</b>  <code>math.pi</code>. -->
+      
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que reciba como argumento dos números enteros positivos $a$ y $n$ y determine   la potencia $a^n$.
+      </p>
+      <!-- <p><b>Sugerencia:</b>  <code>math.pi</code>. -->
+      
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que reciba como argumento un número entero $n$ y determine el valor absoluto de  $n$.
+      </p>
+      <!-- <p><b>Sugerencia:</b>  <code>math.pi</code>. -->
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que  calcule la suma de los $n$ primeros términos de la serie armónica
+        $\displaystyle{\sum_{i=1}^{n} \frac{1}{i}}$
+      </p>
+      <!-- <p><b>Sugerencia:</b>  <code>math.pi</code>. -->
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Utiliza <code>try-except</code> para escribir una función en Python que solicite al usuario que ingrese un número entero y genere una excepción <code>ValueError</code> si la entrada no es un número entero.</p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Utiliza <code>try-except</code> para escribir  una función en Python que reciba el nombre de un archivo, lo abra e imprima su contenido y genere una excepción <code>fileNotFoundError</code> si el archivo no existe.</p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Utiliza <code>try-except</code> para escribir una función en Python que abra un archivo y genere una excepción <code>PermissionError</code> si hay un problema de permiso.</p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Utiliza <code>try-except</code> para escribir una función en Python que reciba una lista no vacia, luego genere un número entero aleatorio $n$ entre $0$ y el doble de la longitud de la lista e imprima el elemento de la lista en la posición $n$  genera una excepción <code>IndexError</code> si el índice está fuera de rango.</p>
+    </div>
+
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Utiliza <code>try-except</code> para escribir una función en Python que solicite al usuario ingresar un número entero positivo, e imprima la raiz cuadrada del número ingresado, genera una excepción <code>ArithmeticError</code> si el se intenta calcular la raiz cuadrada de un número negativo.</p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Utiliza <code>try-except</code> para escribir una función en Python que solicite al usuario que ingrese un número entero o una lista de números enteros e determine el máximo del objeto ingresado  máximo a este número, genera una excepción <code>AttributeError</code> si elatributo no existe.</p>
+    </div>
+   
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que reciba como argumento un número entero positivo $n$ determine e imprima  todos los subconjuntos no vacios del conjunto $\{1,2,\ldots,n\}$. Por ejemplo, si $n=4$, se debe imprimir 
+      (aunque no necesariamente en ese orden):
+      </p>
+      <p> 
+        <div class="flexbox"><img src="../Imagenes/Subconjuntos.JPG" alt="", width="auto" height="auto">
+        </div>
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que reciba como argumento un número entero positivo $n$ y encuentre todos las permutaciones de los números  $1,2,\ldots,n$.
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función recursiva en Python que determine el capital $C_{n}$ obtenido al invertir un 
+      capital inicial $C_0$ a una tasa de interés compuesto durante $n$ años al interés anual $r$
+      (expresado en porcentaje). 
+      </p>
+      <p><b>Observación:</b> Considera la fórmula de interés compuesto:
+      $$C_n = C_0 \left(1 + \frac{r}{100} \right)^{n}$$
+      </p>
+
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <cente><b>Torres de Hanoi</b></cente>
+      <p>Las Torres de Hanoi son un conocido juego de niños, que se juega con tres pivotes y un cierto número
+        de discos de diferentes tamaños. Los discos tienen un agujero en el centro, con lo que se pueden apilar
+        en cualquiera de los pivotes. Inicialmente, los discos se amontonan en el pivote de la izquierda por
+        tamaño decreciente, es decir, el más grande abajo y el más pequeño arriba, como se ilustra en la siguiente 
+        Figura. El objetivo del juego es conseguir llevar los discos del pivote más a la izquierda al de más a
+        la derecha, sin colocar nunca un disco sobre otro más pequeño. Sólo se puede mover un disco cada vez,
+        y cada disco debe encontrarse siempre en uno de los pivotes.
+      </p>
+      <p>
+        <img src="../Imagenes/Hanoi.png" alt="Logo_UMAR" width="95%" height="auto">
+      </p>
+      <p>
+        La estrategia general a seguir es considerar uno de los pivotes como origen y el otro como destino. 
+        El tercer pivote se utilizará para almacenamiento auxiliar, con lo que podremos mover los discos sin
+        poner ninguno sobre otro más pequeño. Supongamos que hay $n$ discos, numerados del más pequeño al
+        más grande, como en la Figura de arriba. Si los discos se encuentran apilados inicialmente en el
+        pivote izquierdo, el problema de mover los $n$ discos al pivote derecho se puede formular de la
+        siguiente forma recursiva:
+        <ol>
+          <li>Mover los $n-1$ discos superiores del pivote izquierdo al del centro.</li><br>
+          <li>Mover el $n$-ésimo disco (el más grande) al pivote de la derecha.</li><br>
+          <li>Mover los $n-1$ discos del pivote del centro al de la derecha.</li>
+        </ol>
+      </p>
+      <p>El problema se puede resolver de esta manera para cualquier valor de $n$ mayor que $O$ ($n=0$
+        representa la condición de fin). Con vistas a la redacción del programa, primero etiquetaremos 
+        los pivotes, de forma que el pivote izquierdo se representará por I, el del centro por C y el
+        derecho por D. 
+      </p>
+      <p>Escribe una función recursiva en Python que determine los movimientos que se deben realizar para 
+        solucionar el problema de las torres de Hanoi 
+      </p>
+      <!-- <p>
+        Construiremos entonces una fusnción recursiva llamada transferir que transferirán discos de un pivote a otro.
+        Refirámonos a los pivotes origen, destino y de almacenamiento temporal con las variables desde, hacia
+        y temp, respectivamente.Como resultado de esto, si asignamos el carácter I a desde, D a hacia y C a temp, 
+        estaremos especificando el movimiento de $n$ discos del pivote izquierdo al derecho, utilizando el pivote
+        del centro para almacenamiento intermedio.
+      </p> -->
+
+      
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+    </div>
+
+</body>
