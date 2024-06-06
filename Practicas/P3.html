@@ -43,6 +43,10 @@
         counter-reset: temaCounter 2 sectionCounter;
       }
 
+      .lista{
+        counter-reset: listaCounter 0 sublistaCounter 1 subsublistaCounter 1 subsubsublistaCounter 1;
+      }
+
       /* h1.page-number-title
       {
       counter-reset: sectionCounter 0;
@@ -52,6 +56,8 @@
           {
           counter-reset: sectionCounter 0;
           } 
+          
+         
 
       h1.number-title
       {
@@ -103,21 +109,46 @@
 
       <!-- This part is for title in tab-->
             
-      <title>Práctica 2 </title>
+      <title>Práctica 3 </title>
       </head>  
 
 
 
-  <body class="fondo-body" ><h1 class="page-title-practica">  Prácticas Segundo Examen Parcial </h1>   
-
+  <body class="fondo-body" ><h1 class="page-title-practica"> Prácticas Tercer Examen Parcial </h1>   
 
     <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
-      <p>La <code>distancia de Levenshtein</code> (o <code>distancia de edición</code>) es el número mínimo de operaciones
-        requeridas para transformar una cadena de caracteres en otra.
-        Se entiende por operación, bien una inserción, eliminación o la sustitución de un carácter.
+      <p>
+        <ol class="lista">
+          <li>Descargar el archivo <a href="../Archivos/Titanic.csv" download> Titanic.csv </a> y guardar esta
+             información en un DataFrame de Pandas.</li>
+          <li>Realizar una exploración inicial de los datos para entender su estructura y contenido.
+            <ol class="sublista">
+              <li>Mostrar las primeras $10$ filas del DataFrame para obtener una visión general de los datos.</li>
+              <li>Utilizar los métodos <code>info()</code> y <code>describe()</code> de pandas para obtener información básica y estadísticas descriptivas del conjunto de datos.</li>
+            </ol>
+          </li>
+          <li>La tasa de supervivencia se define como el porcentaje de individuos que sobreviven en una población o grupo de estudio en relación con el número total de individuos en ese grupo. La fórmula general para calcular la tasa de supervivencia es:
+              \[
+              \text{Tasa de Supervivencia} = \left( \frac{\text{Número de Sobrevivientes}}{\text{Número Total de Individuos}} \right) \times 100 \%
+              \]
+             <ol class=sublista>
+                <li>Calcular la tasa de supervivencia general (Porcentaje de pasajeros que sobrevivieron al desastre en comparación con el número total de pasajeros a bordo).</li>
+                <li>Calcular la tasa de supervivencia por clase (Pclass), género (Sex) y puerto de embarque (Embarked).</li>
+             </ol>
+              
+          </li>
+          <li>Cambiar los valores nulos en la columna <code>Age</code> con la mediana de las edades.</li>
+          <li>Cambiar los valores nulos en la columna <code>Cabin</code> con 'Desconocido'.</li>
+          <li>Agregar una nueva columna <code>Familia</code> en que se almacene <code>True</code> si un pasajero viajaba
+             con familiares o <code>False</code> en caso contrario.</li>
+          <li>Crear un gráfico de barras para mostrar la tasa de supervivencia por clase.</li>
+          <li>Crear un gráfico de barras para mostrar la tasa de supervivencia por género.</li>
+          <li>Crear un gráfico de barras para mostrar la tasa de supervivencia por puerto de embarque.</li>
+          <li>Crear un gráfico de barras para mostrar la tasa de supervivencia para pasajeros que viajaban con y sin familiares.</li>
+          <li>Crear un histograma para visualizar la distribución de edades de los pasajeros.</li>
+
+        </ol>
       </p>
-      <p>Escribe una función recursiva en Python que reciba como parámetros dos cadenas de caracteres y devuelva 
-        la distancia de Levenshtein entre ambas cadenas de texto</p>
     </div>
 
     <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
