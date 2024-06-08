@@ -40,7 +40,7 @@
       counter-reset: temaCounter 1 subsectioncounter ;
       } */
       body.fondo-body{
-        counter-reset: temaCounter 2 sectionCounter;
+        counter-reset: temaCounter 3 sectionCounter;
       }
 
       .lista{
@@ -134,8 +134,8 @@
              <ol class=sublista>
                 <li>Calcular la tasa de supervivencia general (Porcentaje de pasajeros que sobrevivieron al desastre en comparación con el número total de pasajeros a bordo).</li>
                 <li>Calcular la tasa de supervivencia por clase (Pclass), género (Sex) y puerto de embarque (Embarked).</li>
-             </ol>
-              
+             </ol>              
+          </li>
           </li>
           <li>Cambiar los valores nulos en la columna <code>Age</code> con la mediana de las edades.</li>
           <li>Cambiar los valores nulos en la columna <code>Cabin</code> con 'Desconocido'.</li>
@@ -152,16 +152,92 @@
     </div>
 
     <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
-      <p>Crea un módulo en Python llamado <code>area.py</code> que contenga métodos para calcular el área de las siguientes
-        figuras geométricas círculo, rectángulo, triángulo y poligono regular de $n$ lados.
-        En el caso del círculo debes pedir el radio, mientras que en el caso del rectángulo 
-        la base y la altura del mismo, para e triángulo debes primer preguntar al usuario con que información 
-        cuenta del triangulo: 1) las longitudes de cada uno de sus lados, 2) la base y la altura y finalmente 
-        para el póligono regular, debes preguntar el número de lados del poligono regular y la longitud de cada 
-        uno de sus lados y la longitud de su apotema.
+      <p>El dataset "Adult" contiene información demográfica y características socioeconómicas
+        de personas residentes de EU, como la edad, la educación, el estado civil, la ocupación, entre otros.
       </p>
-    </div>
+      <p>Enseguida se presenta una descripción general de las columnas del dataset "Adult".
+        <ul>
+            <li><strong>age</strong>: Edad de la persona.</li>
+            <li><strong>workclass</strong>: Clase laboral, como Private, Self-emp-not-inc, Self-emp-inc, Federal-gov, Local-gov, State-gov, Without-pay, Never-worked.</li>
+            <li><strong>fnlwgt</strong>: Peso de la muestra ajustado por la encuesta.</li>
+            <li><strong>education</strong>: Nivel educativo alcanzado.</li>
+            <li><strong>education-num</strong>: Número de años de educación.</li>
+            <li><strong>marital-status</strong>: Estado civil.</li>
+            <li><strong>occupation</strong>: Ocupación.</li>
+            <li><strong>relationship</strong>: Relación en la familia.</li>
+            <li><strong>race</strong>: Raza.</li>
+            <li><strong>sex</strong>: Sexo.</li>
+            <li><strong>capital-gain</strong>: Ganancia de capital.</li>
+            <li><strong>capital-loss</strong>: Pérdida de capital.</li>
+            <li><strong>hours-per-week</strong>: Horas trabajadas por semana.</li>
+            <li><strong>native-country</strong>: País de origen.</li>
+            <li><strong>income</strong>: Variable objetivo, indicando si la persona tiene ingresos superiores a $50,000 anuales (">50K") o no ("<=50K").</li>
+        </ul>
+      </p>
+      <p>
+      <ol class="lista">
+        <li>Descargar el archivo <a href="../Archivos/Adult.csv" download> Adult.csv </a> y guardar esta
+           información en un DataFrame de Pandas.</li>
+        <li>Realizar una exploración inicial de los datos para entender su estructura y contenido.
+          <ol class="sublista">
+            <li>Mostrar las primeras $10$ filas del DataFrame para obtener una visión general de los datos.</li>
+            <li>Utilizar los métodos <code>info()</code> y <code>describe()</code> de pandas para obtener información básica y estadísticas descriptivas del conjunto de datos.</li>
+      </ol>
+      <li>Tratamiento de valores nulos:
+        <ol class="sublista">
+          <li> Identificar las columnas que contienen valores nulos y cuántos valores faltan en cada columna.
+            <ol class="subsublista">
+              <li>Si la cantidad de valores nulos es pequeña (menor que el 2% del número total valores en la columna), 
+                elimina las filas que contienen valores nulos.</li>
+              <li>En caso contrario, si la variables es  numérica, usar la media y para variables categóricas,
+                utilizar la moda.</li>
+            </ol>
+          </li>
+          <li>Realizar un histograma para visualizar la distribución las siguientes variables 
+            numéricas:  age, education-num, capital-gain, capital-loss, y hours-per-week.
+          </li>
+          <li>Realizar un gráfico de barras  para visualizar la distribución de las siguientes 
+            variables categóricas: workclass, education, marital-status, occupation, 
+            relationship, race, sex, native-country, y income.
+          </li>
+          <li>Los gráficos de dispersión son útiles para visualizar la relación entre dos variables numéricas.
+            Crea los siguientes gráficos de dispersion:
+            <ol class="subsublista"> 
+              <li>Relación entre Edad y Años de Educación:
+                <ol class="subsubsublista">
+                  <li>Crea un gráfico de dispersión para mostrar la relación entre la edad (age) y los años de educación (education-num).</li>
+                  <li>Colorea los puntos según la variable income para distinguir entre aquellos con ingresos superiores a \$ 50,000 anuales
+                     (">50K") y aquellos con ingresos menores o iguales a \$ 50,000 anuales ("<=50K").</li>
+                  <li>Agrega etiquetas y un título adecuado al gráfico.</li>
+                </ol>
+              </li>
+              <li>Relación entre Ganancias y Pérdidas de Capital:
+                <ol class="subsubsublista">
+                  <li>Crea un gráfico de dispersión para mostrar la relación entre las ganancias de capital (capital-gain) y las pérdidas de capital (capital-loss).</li>
+                  Colorea los puntos según la variable income.</li>
+                  <li>Agrega etiquetas y un título adecuado al gráfico.</li>
+                </ol>
+              </li>
+              <li>Relación entre Años de Educación y Horas Trabajadas por Semana:
+                <ol class="subsubsublista">
+                  <li>Crea un gráfico de dispersión para mostrar la relación entre los años de educación (education-num) y las horas trabajadas por semana (hours-per-week).</li>
+                  <li>Colorea los puntos según la variable income.</li>
+                  <li>Agrega etiquetas y un título adecuado al gráfico.</li>
+                </ol>
+              </li>
+              <li>Relación entre Edad y Horas Trabajadas por Semana (por Ocupación):
+                <ol class="subsubsublista">
+                  <li>Crea un gráfico de dispersión para mostrar la relación entre la edad (age) y las horas trabajadas por semana (hours-per-week).</li>
+                  <li>Colorea los puntos según la variable occupation para distinguir entre diferentes ocupaciones.</li>
+                  <li>Agrega etiquetas y un título adecuado al gráfico.</li>
+                </ol>
+              </li>
+            </ol>
+          </li>
 
+    </p>
+    </div>
+<!--
     <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
       <p>Crea un módulo en Python llamado <code>miestadistica.py</code> que contenga métodos para realizar cálculos estadísticos 
         básicos, como calcular el promedio, la mediana, la desviación estándar y la  moda de un conjunto de una lista 
@@ -439,11 +515,7 @@
         vector1 es: <code>[0 1 2 3 4]</code> y el vector2 es: <code>[0, 2]</code> 
         entonces la función debe devolver: <code>[ True False  True False False]</code>
       </p>
-      <!-- <p>
-        <center>
-         <img src="../Imagenes/" alt="" width="20%" height="auto">
-        </center>
-      </p> -->
+      
 
     </div>
 
@@ -453,11 +525,8 @@
         La función debe devolver un vector con los elementos en común.
       </p>
       <p><b>Observación:</b> Resuelve el problema sin utilizar <code>numpy.intersect1d</code></p>
-      <!-- <p>
-        <center>
-         <img src="../Imagenes/" alt="" width="20%" height="auto">
-        </center>
-      </p> -->
+
+      
 
     </div>
 
@@ -530,9 +599,7 @@
         temperatura maxima correspondiente.Almacenar estas en un arreglo. Luego utilizando matplotlib.pytplot
         realiza la gráfica de estas temperaturas promedio mensual, graficar las 
         correspondientes a las temperaturas mínimas y las temperaturas máximas. 
-        <!-- <center>
-        <img src="../Imagenes/" alt="", width="25%" height="auto">
-        </center> -->
+      
       </p>
     </div>
 
@@ -557,5 +624,5 @@
 
     <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
     </div> 
-
+-->
 </body>
