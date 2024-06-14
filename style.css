@@ -1207,7 +1207,7 @@ ol li::marker{
   counter-increment: listaCounter;
   /* font-weight: bold; */
   /*counter-reset: sublistaCounter; */
-  padding: 1.25px;
+  padding: 2.5px;
   /* font-size: 20px; */
 } 
 
@@ -1248,6 +1248,8 @@ ol li::marker{
 
 .sublista li{
   counter-increment: sublistaCounter;
+  padding: 2.5px;
+
 }
 
 .sublista li::marker{
@@ -1305,6 +1307,8 @@ ol li::marker{
 
 .subsubsublista li{
   counter-increment: subsubsublistaCounter;
+  padding: 2.5px;
+
 }
 
 .subsubsublista li::marker{
@@ -1339,3 +1343,5 @@ h1.number-title-practica:after{
   content: " " counter(temaCounter)"."counter(sectionCounter) ".";
 }
 */
+
+
