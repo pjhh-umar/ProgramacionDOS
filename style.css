@@ -1113,14 +1113,19 @@ img {
   border-radius: 40px;
   border: 2.5px solid rgba(52, 173, 249, 0.718);
   background: rgb(252, 252, 244);
-  font-size: 1.1rem;
+  /*font-size: 1.1rem;*/
   padding: 0.6em 1.8em;
   font-weight: 600;
   text-align: center;
-  white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+  font-size: 85%;
+  white-space: nowrap;
   transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   cursor: pointer;
+  -webkit-transition:;
+  -moz-transition:;
+  -ms-transition:;
+  -o-transition:;
 }
 
 .respButton:hover,
