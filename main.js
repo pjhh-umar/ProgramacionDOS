@@ -42,3 +42,13 @@ $(document).ready(function() {
     };
     };
   
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".respButton");
+    const box = document.querySelector(".resp-box");
+
+    button.addEventListener("click", function () {
+      box.classList.toggle("show");
+    });
+  });
+</script>

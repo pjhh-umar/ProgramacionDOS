@@ -936,44 +936,6 @@ h1.number-title-practica::after{
   box-shadow: 2px 2px 15px 2px  rgb(31, 147, 201);  
   }
 
-.resp-box{
-  display: none;
-  /* background:  rgb(218, 237, 245); */
-  color: black;
-  /* border-radius: 15px; */
-  /* padding: 1px; */
-  /* border-top:  0px solid   rgb(218, 237, 245); */
-  /* border-bottom:  0px solid   rgb(218, 237, 245); */
-  /* border-right:  10px solid   rgb(218, 237, 245); */
-  /* border-left:  0px solid   rgb(218, 237, 245); */
-  margin: auto;
-  margin-bottom: 0px;
-  margin-top: 10px;
-  font-size: 85%;
-  /* width: 85%; */
-  /* box-shadow: 1px 1px 5px 1px  rgb(31, 147, 201); */
-}
-
-.flex-box{
-  display: none;
-  /* background:  rgb(218, 237, 245); */
-  color: black;
-  /* border-radius: 15px; */
-  /* padding: 1px; */
-  /* border-top:  0px solid   rgb(218, 237, 245); */
-  /* border-bottom:  0px solid   rgb(218, 237, 245); */
-  /* border-right:  10px solid   rgb(218, 237, 245); */
-  /* border-left:  0px solid   rgb(218, 237, 245); */
-  margin: auto;
-  margin-bottom: 0px;
-  margin-top: 0px;
-  margin-left: 0px;
-  text-align: left;
-  font-size: 20px;
-  /* width: 85%; */
-  /* box-shadow: 1px 1px 5px 1px  rgb(31, 147, 201); */
-}
-
 img {
   max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
   height: auto; /* Mantiene la proporción de la imagen */
@@ -1113,19 +1075,14 @@ img {
   border-radius: 40px;
   border: 2.5px solid rgba(52, 173, 249, 0.718);
   background: rgb(252, 252, 244);
-  /*font-size: 1.1rem;*/
   padding: 0.6em 1.8em;
   font-weight: 600;
-  text-align: center;
   font-size: 85%;
   white-space: nowrap;
   transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   cursor: pointer;
-  -webkit-transition:;
-  -moz-transition:;
-  -ms-transition:;
-  -o-transition:;
+  text-align: center;
 }
 
 .respButton:hover,
@@ -1147,6 +1104,19 @@ img {
   transform: scale(1.04);
 }
 
+.resp-box {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  margin-top: 10px;
+  font-size: 85%;
+}
+
+.resp-box.show {
+  max-height: 200px; /* suficiente para mostrar contenido */
+  opacity: 1;
+}
 
 
 .video{
