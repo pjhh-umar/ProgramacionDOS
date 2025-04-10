@@ -1108,42 +1108,38 @@ img {
 }
 
 .respButton {
-  display: block;
+  display: inline-block;
   font-family: "Bitter", serif;
-  border-radius: 60px;
+  border-radius: 40px;
   border: 2.5px solid rgba(52, 173, 249, 0.718);
   background: rgb(252, 252, 244);
-  margin: 0 auto;
-  font-size: 90%;
-  padding: 1%;
+  font-size: 1.1rem;
+  padding: 0.6em 1.8em;
   font-weight: 600;
   text-align: center;
-
-  /* Transiciones suaves */
-  transition: 
-    background-color 0.6s ease-in-out,
-    transform 0.4s ease-in-out,
-    box-shadow 0.4s ease-in-out;
+  white-space: nowrap; /* Evita que el texto se divida en dos líneas */
+  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
 .respButton:hover,
 .respButton:focus,
 .respButton:active {
   background-color: rgb(238, 250, 255);
-  transform: scale(1.05); /* menos brusco que 1.1 */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* efecto de elevación suave */
+  transform: scale(1.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .hvr-grow {
-  vertical-align: middle;
   transform: perspective(1px) translateZ(0);
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hvr-grow:hover,
 .hvr-grow:focus,
 .hvr-grow:active {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 
