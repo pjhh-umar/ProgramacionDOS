@@ -79,11 +79,13 @@
       <body class="fondo-body" ><h1 class="page-title"> Notas</h1>  
         <div class="links-box"  style = "font-family: 'Oldenburg', cursive;">
           <!-- <a href="./Semanas/" download> </a><br> -->
-          <a href="./Semanas/Tema1_Errores_Excepciones.ipynb" target="_blank">Tema 1. Errores y excepciones en Python</a> 
-          <a href="./Semanas/Tema2_POO.ipynb" target="_blank">Tema 2. Programación Orientada a Objetos (POO)</a> 
-          <a href="./Semanas/Tema3_Modulos.ipynb" target="_blank">Tema 3. Módulos en Python</a> 
+          <a href="./Temas/Tema1_Errores_Excepciones.ipynb" target="_blank">Tema 1. Errores y excepciones en Python</a> 
+          <a href="./Temas/Tema2_POO.ipynb" target="_blank">Tema 2. Programación Orientada a Objetos (POO)</a> 
+          <a href="./Temas/Tema3_Modulos.ipynb" target="_blank">Tema 3. Módulos en Python</a> 
+          <a href="./Temas/Tema4_Matplotlib.ipynb" target="_blank">Tema 4. Matplotlib</a> 
+          <a href="./Temas/Tema5_Numpy.ipynb" target="_blank">Tema 5. Numpy</a> 
         </div>
-
+ 
         <!--
         <a href="./Semanas/S2.ipynb" target="_blank">Semana 3 y 4</a> <br>
         <a href="./Semanas/S3.ipynb" target="_blank">Semana 5, 6 y 7</a> 
@@ -106,6 +108,30 @@
         <a href="https://pjhh-umar.github.io/ProgramacionDOS/Semanas/S13.html">Semana 13</a> 
         <a href="https://pjhh-umar.github.io/ProgramacionDOS/Semanas/S14.html">Semana 14</a>  -->
     </div>
+
+          <!-- Donde aparecerá la fecha de la última modificación -->
+   <footer>
+    <center>
+     <p id="ultima-actualizacion"></p>
+    </center>
+</footer>
+<script>
+  // Obtenemos la fecha y hora de la última modificación del documento
+  const fechaModificacion = new Date(document.lastModified);
+  
+  // Opciones para formatear la fecha (por ejemplo, DD/MM/AAAA)
+  const opcionesFecha = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  const fechaFormateada = fechaModificacion.toLocaleDateString('es-ES', opcionesFecha);
+
+  // Obtenemos la hora (HH:MM:SS)
+  const horaFormateada = fechaModificacion.toLocaleTimeString('es-ES', {
+      hour: '2-digit', minute: '2-digit'
+  });
+
+  // Insertamos la fecha y la hora en el elemento con el ID "ultima-modificacion"
+  document.getElementById("ultima-actualizacion").textContent = `Última actualización: ${fechaFormateada}`;
+</script>
+
 
   </body>
 
