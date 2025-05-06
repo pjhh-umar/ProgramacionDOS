@@ -805,14 +805,9 @@ h1.number-title-practica::after{
   padding: 10px 0;           /* Espaciado vertical para cada enlace */
   padding-left: 22%; 
   /*color:  rgba(14, 137, 253, 0.801);*/
-  text-decoration: none;     /* Elimina el subrayado por defecto */
+  text-decoration: none;   
   color:  rgb(255, 0, 0); 
 
-}
-
-.links-box a:hover {
-  text-decoration: underline;
-  color: darkred;
 }
 
 .links-box a:visited{
@@ -820,6 +815,11 @@ h1.number-title-practica::after{
   text-decoration: none;  /* (opcional) Elimina subrayado si lo deseas */
 
   /* color:  rgba(14, 137, 253, 0.801); */
+}
+
+.links-box a:hover {
+  text-decoration: underline;
+  color: darkred;
 }
 
 
