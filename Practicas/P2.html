@@ -914,6 +914,422 @@
         </p>
       </div>
 
+        <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>La <code>distancia de Levenshtein</code> (o <code>distancia de edición</code>) es el número mínimo de operaciones
+        requeridas para transformar una cadena de caracteres en otra.
+        Se entiende por operación, bien una inserción, eliminación o la sustitución de un carácter.
+      </p>
+      <p>Escribe una función recursiva en Python que reciba como parámetros dos cadenas de caracteres y devuelva 
+        la distancia de Levenshtein entre ambas cadenas de texto</p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Crea un módulo en Python llamado <code>area.py</code> que contenga métodos para calcular el área de las siguientes
+        figuras geométricas círculo, rectángulo, triángulo y poligono regular de $n$ lados.
+        En el caso del círculo debes pedir el radio, mientras que en el caso del rectángulo 
+        la base y la altura del mismo, para e triángulo debes primer preguntar al usuario con que información 
+        cuenta del triangulo: 1) las longitudes de cada uno de sus lados, 2) la base y la altura y finalmente 
+        para el póligono regular, debes preguntar el número de lados del poligono regular y la longitud de cada 
+        uno de sus lados y la longitud de su apotema.
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Crea un módulo en Python llamado <code>miestadistica.py</code> que contenga métodos para realizar cálculos estadísticos 
+        básicos, como calcular el promedio, la mediana, la desviación estándar y la  moda de un conjunto de una lista 
+        de datos numéricos.
+      </p>
+      
+      
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+
+      <p>Crea un módulo en Python llamado <code>fraccion.py</code>, el módulo debe tener las siguientes caracteristicas:
+        <ol>
+          <li>Una clase llamada <code>Fraccion</code> en la cual el constructor de la clase debe recibir el numerador y el
+             denominador para definr una fracción, utiliza decoradores para validar que el denominador 
+             sea distinto de cero. Luego, utiliza metodos especiales para representar a los objetos instanciados 
+             de la clase Fracción como $a/b$.
+          </li><br>
+          <li>El módulo debe tener un método que se llame <code>simplificar</code>, este método debe recibir una fracción 
+            (un objeto de la clase fracción) e imprimir la fracción simplificada.</li>
+          <li>En el módulo, crear un método llamado sumar que reciba como argumento  dos fracciones 
+            (dos objetos de la clase Fracción) e imprima la fracción resultando de la suma pero simplificada.
+          </li><br>
+          <li>En el módulo, crear un método llamado <code>restar</code> que reciba como argumento dos fracciones
+             (dos objetos de la clase Fracción) e imprima la fracción resultante de la resta pero simplificada.
+          </li><br>
+          <li>En el módulo, crear un método llamado <code>producto</code> que reciba como argumento dos fracciones
+             (dos objetos de la clase Fracción) e imprima la fracción resultante del producto pero simplificada.
+          </li><br>
+          <li>En el módulo, crear un método llamado <code>division</code> que reciba como argumento dos fracciones
+            (dos objetos de la clase Fracción) e imprima la fracción resultate de la división pero simplificada.
+          </li><br>
+          <li>En el módulo, crear un método llamado <code>adecimal</code> que reciba como argumento un fracción
+            (un objeto de la clase Fracción) e imprima la expresion decimal de la fracción. 
+          </li><br>
+       </p>
+      
+    </div>
+
+    
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>El <b>algoritmo de Luhn</b>, también conocido como algoritmo de módulo 10, es un método comúnmente utilizado
+        para validar números de tarjetas de crédito y débito, así como también números de seguridad social y otros 
+        identificadores numérico. El algoritmo de Luhn consiste en los siguientes pasos:</p>
+
+        <p>
+          <ol>
+            <li>Invertir el número,</li><br>
+            <li>Multiplicar por $2$ los dígitos en posiciones impares,</li><br>
+            <li>Multiplicar los dígitos impare por $2$: Si después de multiplicación un dígito en posición
+              impar el resultado es mayor que $9$, restarle resta 9 al resultado. Esto asegura que todos 
+              los dígitos resultantes sean menores o iguales a 9.</li><br>
+            <li>Sumar todos los díggitos del número.</li><br>
+            <li>Verificar si la suma es divisible por $10$: Si el resultado de la suma es divisible por 10, entonces
+              el número es válido según el algoritmo de Luhn.</li>
+          </ol>
+        </p>
+        <p>Crea un módulo en Python llamada <b>validacion_tarjeta.py</b> que tenga un método llamado 
+          <i>algoritmo_luhn</i> que reciba como parámetro una cadena de números, la función debe validar
+          si en efecto la cadena ingresa representa un número entero positivo y debe devolver 
+          <code>True</code> si el número ingresado es válido según el Algoritmo de Luhn y
+          <code>False</code> en caso contrario.
+        </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Crea un módulo en Python llamado <b>distancia_puntos</b> que incluya métodos para calcular la
+        distancia entre dos puntos en el plano cartesiano utilizando diferentes distancias:
+        <ol>
+          <li><b>Distancia Euclidiana:</b>
+            <p>
+              \[
+            D_{\text{Euclidiana}}((x_1, y_1), (x_2, y_2)) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+            \]
+            </p>
+          </li><br>
+            <li><b>Distancia del taxista  ( o de Manhattan):</b>
+              <p>
+                \[
+                D_{\text{Manhattan}}((x_1, y_1), (x_2, y_2)) = |x_2 - x_1| + |y_2 - y_1|
+                \]
+              </p>
+            </li><br>
+          <li><p><b>Distancia de Minkowski:</b> La distancia de Minkowski generaliza tanto la distancia
+             Euclidiana como la del taxista como casos especiales. Cuando $p=2$, se reduce a la distancia 
+             Euclidiana, y cuando $p=1$ se reduce a la distancia del Taxista.
+            </p>
+            <p>
+              \[
+              D_{\text{Minkowski}}((x_1, y_1), (x_2, y_2)) = \left( |x_2 - x_1|^p + |y_2 - y_1|^p \right)^{\frac{1}{p}}
+              \]
+            </p>
+          </li><br>
+          <li><b>Distancia de Chebyshev:</b>
+            <p>
+              \[
+              D_{\text{Chebyshev}}((x_1, y_1), (x_2, y_2)) = \max(|x_2 - x_1|, |y_2 - y_1|)
+              \]
+            </p>
+          </li><br>
+          <li><b>Distancia de Canberra:</b>
+            \[
+            D_{\text{Canberra}}((x_1, y_1), (x_2, y_2)) = \sum_{i=1}^{2} \frac{|x_i - y_i|}{|x_i| + |y_i|}
+            \]</li><br>
+        </ol> </p>
+    </div>
+
+
+    
+      <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>
+        Escribe una función en Python que implemente el <b>Método babilonico</b> utilizando ndarrays para 
+        aproximar la raiz cuadrada de un número entero positivo. La función debe recibir cuatro argumentos:
+        <code>a0,numero,iteraciones</code> y <code>epsilon</code> pero sólo el parametro <code>numero</code>
+        debe ser obligatorio (y debe ser un número entero positivo) los otros deben tener los siguientes
+        valores predeterminados:  <code>a0=1</code>, <code>iteraciones=10</code> y 
+        <code>epsilon=0.00005</code>. El parámetro  <code>a0</code> es una aproximación inicial distinta de cero
+        a la raiz cuadrada de <code>numero</code>, <code>iteraciones</code> es el número de iteraciones a realizar 
+        y epsilon el error relativo entre dos términos consecutivos. La función debe devolver la aproximación a la 
+        raiz cuadrada de número cuando se cumpla que el número de iteraciones sea igual a <code>iteraciones</code>
+        o bien cuando la diferencia entre dos aproximaciones consecutivas sea menor que el valor de 
+        <code>epsilon</code>  y una tabla como la que se aprecia enseguida:
+      </p>
+      <p>
+        <center>
+        <img src="../Imagenes/metodo_babilonico_.png" alt="" width="100%" height="auto">
+      </center>
+      </p>
+      
+    </div>
+
+    
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>
+        Un jugador de apuestas juega contra la banca partidas sucesivas e independientes. En cada partida,
+        la probabilidad de ganar es igual a la de perder: $p=\frac{1}{2}$. Si el jugador pierde, entrega
+        un <i>ajolopeso</i> a la banca, y si gana recibe la misma cantidad. La fortuna del jugador depende  por
+        lo  tanto del al azar, de acuerdo con los resultados de las distintas partidas. El jugador tiene
+        previsto retirarse tanto si llega a ganar $6$ <i>ajolopesos</i>  como si llega a perder $4$
+        <i>ajolopesos</i>.
+      </p>
+      <p>Escribe un programa en Python que realice $1000000$ de simulaciones de este experimento y en base a
+        los resultados estima la probabilidad de alcanzar esos $6$ <i>ajolopesos</i> de beneficio.
+      </p>
+      
+
+    </div>
+
+    
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escriba un programa en Python donde utilices Numpy para crear un 
+        vector de números enteros del 30 al 70.
+      </p>
+      <p>
+        <center>
+        <img src="../Imagenes/2.9.png" alt="" width="85%" height="auto">
+      </center>
+      </p>
+    </div>
+
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escriba un programa en Python donde utilices Numpy para crear un 
+        vector de todos los números pares del 30 al 70.</p>
+      <p>
+        <center>
+         <img src="../Imagenes/2.10.png" alt="" width="70%" height="auto">
+        </center>
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un programa en Python donde utlices NumPy para crear una matriz 
+        $3 \times 4$ con los valores del 10 al 21.
+      </p>
+      <p><b>Hint:</b> Utiliza el metodo <code>array.reshape()</code>.</p>
+      <p>
+        <center>
+         <img src="../Imagenes/2.11.png" alt="" width="18%" height="auto">
+        </center>
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un programa en Python donde se utilice NumPy para crear un 
+        arreglo de $10\times 10$, en la que los elementos en los extremos  
+        sean iguales a $1$ y  0 en cualquier otro caso, i.e. para 
+        $0< i , j < 9$ las entradas $i,j$ de la matrix son iguales a cero 
+        y $1$ en cualquier otro caso.
+      </p>
+      <p>
+        <center>
+        <img src="../Imagenes/2.12.png" alt="" width="40%" height="auto">
+      </center>
+      </p>
+    </div>
+   
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p> Escribe un programa en Python donde se utilice Numpy para crear un arreglo
+        de tamaño $5\times 5$ con elementos en la diagonal principal iguales 
+        a $1, 2, 3, 4, 5$ .
+      </p>
+      <p>
+        <center>
+         <img src="../Imagenes/2.13.png" alt="" width="15%" height="auto">
+        </center>
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>
+        Escribe un programa en Python donde utilices  NumPy para crear un vector con valores de 0 a 11 
+        y cambia el signo de los números en el rango de 3 a 7 (incluyendo estos).
+      </p>
+      <p>
+        <center>
+         <img src="../Imagenes/2.14.png" alt="" width="85%" height="auto">
+        </center>
+      </p>
+
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un programa en Python donde utilices NumPy para crear una matriz de
+        tamaño $4\times 4$ en la que $0$ y $1$ se encuentren escalonados.
+      </p>
+      <p>
+        <center>
+         <img src="../Imagenes/2.15.png" alt="" width="20%" height="auto">
+        </center>
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un programa en Python donde utilices NumPy para guardar una matriz
+         determinada en un archivo de texto y luego leerla e imprimirla desde el archivo.
+      </p>
+      <p>
+        <b>Sugerencia:</b> Utiliza las funciones <code>numpy.savetxt</code> y <code>numpy.loadtxt</code>
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un función en Python que utilice NumPy para intercambiar dos filas o columnas de una matriz. 
+        La función debe tener los siguientes argumentos: arreglo2d, intercambiar,i,j, 
+        donde arreglo2d es una matriz de números reales, intercambiar es
+        un valor booleano: $0$ para intercambiar filas o $1$ para intercambiar columnas
+        (con valor predeterminado igual a $0$). Los parámetros $i$ y $j$ indican las filas o 
+        columnas a intercambiar, para estos parámetros verificar que en efecto sean valores
+        válidos i.e. si se desean cambiar filar que estos sean no negativos y no sean mayores
+        que el número de filas $-1$.
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un función en Python que utilice NumPy para para invertir el orden de los elementos de una matriz
+         la función debe recibir una matriz y devolver una matrix cuyo primer elemento se
+          sea último de la matriz original
+      </p>
+      <p><b>Observación:</b> No utilice la función <code>numpy.flip()</code></p>
+      <p>
+        <center>
+         <img src="../Imagenes/2.18.png" alt="" width="20%" height="auto">
+        </center>
+      </p>
+      
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función en Python que reciba dos vectores: <code>vector1,vector2</code>
+        y que utilice NumPy para probar si cada elemento de <code>vector1</code> es un elemento
+        de <code>vector2</code>, la función debe devolver un vector con entradas 
+        <code>Verdadero, Falso</code> según sea el caso para cada elemento. Por ejemplo, si el
+        vector1 es: <code>[0 1 2 3 4]</code> y el vector2 es: <code>[0, 2]</code> 
+        entonces la función debe devolver: <code>[ True False  True False False]</code>
+      </p>
+      <!-- <p>
+        <center>
+         <img src="../Imagenes/" alt="" width="20%" height="auto">
+        </center>
+      </p> -->
+
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función en Python que reciba dos matrices: <code>matriz1,matriz2</code>
+        y que utilice NumPy para determinar todos los elementos en comun entre las dos matrices. 
+        La función debe devolver un vector con los elementos en común.
+      </p>
+      <p><b>Observación:</b> Resuelve el problema sin utilizar <code>numpy.intersect1d</code></p>
+      <!-- <p>
+        <center>
+         <img src="../Imagenes/" alt="" width="20%" height="auto">
+        </center>
+      </p> -->
+
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función en Python que reciba una matriz y utilice NumPy para encontrar todos
+        los elementos únicos (aquellos que sólo se encuentran una vez en la matriz) de la matriz.
+        La función debe devolver un vector con los elementos en únicos de la matriz.
+      </p>
+      <p><b>Observación:</b> Resuelve el problema sin utilizar <code>numpy.intersect1d</code></p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1> 
+      <p>Escribe una función en Python que reciba una matriz y un número de punto flotante,
+        que utilice Numpy para determinar el valor de la matriz más cercano al número dado. La función debe 
+        debe devolver tal valor.
+      </p>
+    </div>
+
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe una función en Python que utilice NumPy para ordenar una matriz respecto a una fila,columna 
+        específica. La función debe recibir los siguientes argumentos: <code>matriz</code>, <code>ordenar</code>,
+        <code>i</code> donde <code>matriz</code> es un arreglo 2-dimensiobal de números reales, <code>ordenar</code>
+        es un valor booleano: $0$ para filas o $1$ para columnas (con valor predeterminado igual a $1$) y el
+        parámetro $i$ indica la columna o fila con respecto a la cual se debe ordenar la matriz, para este parámetro
+        verificar que en efecto sean valores válidos i.e. si se desea ordenar respecto a una columna especifica 
+        verificar que no sea negativo y no sean mayores que el número de columnas $-1$.
+      </p>
+      <p>
+        <center>
+          <img src="../Imagenes/2.23.png" alt="" width="10%" height="auto">
+         </center>
+      </p>
+
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p><b>Definición:</b> Los <b>puntos de silla</b> de una matriz son aquellos elementos de la matriz 
+        que cumplen que son menores o iguales que el resto de elementos de su fila y mayores o iguales que el resto
+        de elementos de su columna, o al revés, mayores o iguales que el resto de elementos de su fila 
+        y menores o iguales que el resto de elementos de su columna.
+      </p>
+
+      <p>Escribir un programa en Python donde utilice Numpy para generar una matriz cuadrada de tamaño $10 \times 10$
+        con números 
+        aleatorios entre $0$ y $9$, bajo el siguiente criterio: Las entradas de la matriz se llenarán con números
+        de acuerdo a la posición en la que se encuentren: en la entrada $i,j$ de la matriz se debe colocar un 
+        número impar $(1,3,5,\ldots,9)$ si $i+j$ es un número impar mientras que se debe colocar un  número par
+        $(0,2,4,\ldots,8)$ si la suma  $i+j$ resulta ser un número par. Luego, imprimir la matriz obtenida y
+        realizar lo siguiente:
+      </p>
+      <p>
+        <ol>
+        <li>Crear un vector que almacene el máximo elemento de cada columna de la matriz e imprimir
+          la posicion en la que se encuentre e imprimir  el vector.</li><br>
+        <li>Crear un vector que almacene el máximo elemento de cada fila de la matriz e imprimir 
+          la posicion en la que se encuentre e imprimir  el vector.</li><br>
+        <li>Imprimir el  valor máximo almacenado en toda la matriz e imprimir todas las posiciones en las que se
+           encuentra este valor.</li><br>
+        <li>Finalmente, encuentre e imprima todos los puntos sillas de la matriz.</li>
+      </ol>
+      </p>
+      <p><b>Sugerencia:</b> Utiliza el metodo <code>numpy.random.randint()</code></p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Escribe un programa en Python que genere de forma aleatoria las temperaturas promedio mínimas
+         y máximas mensuales durante un año particular, estas tiene que ser tomadas de manera uniforme
+        entre 20 C y 40  y además para cada mes la temperatura mínima debe ser menor o igual que la
+        temperatura maxima correspondiente.Almacenar estas en un arreglo. Luego utilizando matplotlib.pytplot
+        realiza la gráfica de estas temperaturas promedio mensual, graficar las 
+        correspondientes a las temperaturas mínimas y las temperaturas máximas. 
+        <!-- <center>
+        <img src="../Imagenes/" alt="", width="25%" height="auto">
+        </center> -->
+      </p>
+    </div>
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>Crear una clase `vector` con atributos y métodos similares a los de la clase punto creadas en una clase previa. Crear un método llamado `dibujar` en el cual utilices la librería matplotlib para representar gráficamente el vector en el plano, como se aprecia en el siguiente gráfico:
+
+
+        <center>
+        <img src="../Imagenes/vector.png" alt="", width="50%" height="auto">
+        </center>
+      </p>
+    </div> 
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+      <p>
+        Escribe un programa en Python que implemente la clase vector creada en la Práctica 12.2 que solicite al usuario las coordenadas de dos vectores y represente geométricamente a cada uno de los vectores en un mismo plano cartesiano. Así, como el vector que resulta de sumar ambos vectores, intenta representar geometricamente la regla del paralelograma para la suma de vectores. 
+      </p>
+    </div> 
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+    </div> 
+
+    <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
+    </div> 
+
       <!-- <div class="nota-box"><h1 class="number-title-practica"> Práctica</h1>
        <p>Crea un programa en Python que solicite al usuario un  número menor que 50 y 
         luego imprima hacia atras desde $50$ a ese número.</p>
