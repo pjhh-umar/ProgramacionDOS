@@ -798,6 +798,9 @@ h1.number-title-practica::after{
     
 }
 
+
+
+
 .links-box a{ 
   /* padding: 10px; */
   display: block; 
@@ -809,7 +812,6 @@ h1.number-title-practica::after{
   color:  rgb(255, 0, 0); 
 
 }
-
 .links-box a:visited{
   color:  rgb(0, 0, 139); 
   text-decoration: none;  /* (opcional) Elimina subrayado si lo deseas */
@@ -821,6 +823,54 @@ h1.number-title-practica::after{
   text-decoration: underline;
   color: darkred;
 }
+
+.links-box_{
+  /* background:  rgb(218, 237, 245); */
+    background: rgb(252, 252, 244);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5%;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    border: 0px solid  rgb(218,165,32);
+    margin: auto; 
+    margin-top: 50px; 
+    font-size: 25px;
+    width: 90%;
+    box-shadow: 0px 0px 10px 0px  rgb(218,165,32);
+    align-items: left;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    
+}
+
+.links-box_ a{ 
+  /* padding: 10px; */
+  display: block; 
+  font-weight: 500;
+  padding: 10px 0;           /* Espaciado vertical para cada enlace */
+  padding-left: 0%; 
+  /*color:  rgba(14, 137, 253, 0.801);*/
+  text-decoration: none;   
+  color:  rgb(255, 0, 0); 
+
+}
+
+.links-box_ a:visited{
+  color:  rgb(0, 0, 139); 
+  text-decoration: none;  /* (opcional) Elimina subrayado si lo deseas */
+
+  /* color:  rgba(14, 137, 253, 0.801); */
+}
+
+.links-box_ a:hover {
+  text-decoration: underline;
+  color: darkred;
+}
+
+
+
 
 
 .info-profesor-box{
