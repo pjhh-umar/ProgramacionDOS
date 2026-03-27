@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC >
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../main.js"></script>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1],
+            id: "\\operatorname{id}",
+          },
+          tags: "ams", /* this part is for numbered equations */
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+
+    <style>
+      body.fondo-body{
+        counter-reset: temaCounter 1 sectionCounter;
+      }
+     
+      h1.page-title-practica{
+        counter-reset: semanaCounter 1 sectionCounter  subsectionCounter;
+      } 
+      
+      /* Estilos específicos para el Quiz integrados a tu diseño */
+      .quiz-container { 
+        font-family: Arial, sans-serif; 
+        margin: auto; 
+        padding: 10px; 
+      }
+      .question { 
+        margin-bottom: 15px; 
+        font-weight: bold; 
+        font-size: 110%; 
+        color: rgb(3, 89, 165); 
+      }
+      .options { 
+        margin-bottom: 25px; 
+        padding-left: 15px; 
+      }
+      .options label { 
+        display: block; 
+        margin-bottom: 10px; 
+        cursor: pointer; 
+        padding: 8px; 
+        border-radius: 5px; 
+        transition: background-color 0.2s; 
+      }
+      .options label:hover { 
+        background-color: #e6f0fa; 
+      }
+      .btn { 
+        background-color: rgb(3, 66, 139); 
+        color: white; 
+        padding: 12px 25px; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        font-size: 16px; 
+        font-weight: bold; 
+      }
+      .btn:hover { 
+        background-color: rgb(0, 124, 191); 
+      }
+      #resultado { 
+        margin-top: 20px; 
+        font-weight: bold; 
+        font-size: 18px; 
+        padding: 15px; 
+        border-radius: 5px; 
+      }
+    </style>
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <title>Quiz 1: POO y Excepciones</title>
+  </head>  
+
+  <body class="fondo-body" >
+    
+    <header class="main-header">
+      <div class="logo_superior_umar">
+        <a href="https://www.umar.mx" target="_blank"><img src="../Imagenes/umar_logo_hd.webp" alt="Logo_UMAR" width="110%" height="auto"></a>
+      </div>
+      <div class="contenedor_titulo">
+        <div class="title">Programación II</div>
+        <div class="subtitle">Universidad del Mar, campus Huatulco</div>
+        <div class="subsubtitle">Licenciatura en Actuaría </div>
+      </div>
+      <div class="logo_superior_umar">
+        <a href="https://www.umar.mx" target="_blank"><img src="../Imagenes/umar_logo_hd.webp" alt="Logo_UMAR" width="110%" height="auto"></a>
+      </div>
+    </header>
+
+    <nav class="top-nav">
+      <ul>
+        <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Home.html"> Inicio  </a> </li>
+        <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Informacion_General.html"> Información </a> </li>
+        <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Notas.html"> Notas  </a> </li>
+        <!-- <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Quizes.html"> Quizes  </a> </li> -->
+        <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Practicas.html">Prácticas</a> </li>
+        <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Archivos.html">Archivos </a> </li>
+      </ul>
+    </nav>
+       
+    <h1 class="page-title-practica"> Quiz: Excepciones y Programación Orientada a Objetos </h1> 
+    
+    <div class="nota-box">
+      <!-- <h1 class="number-title-practica"> </h1> -->
+      
+      <div class="quiz-container">
+        <div id="quiz"></div>
+        <button class="btn" onclick="evaluarQuiz()">Enviar Respuestas</button>
+        <div id="resultado"></div>
+      </div>
+      
+    </div>
+
+    <footer>
+      <center>
+       <p id="ultima-actualizacion"></p>
+      </center>
+    </footer>
+
+    <script>
+      // Lógica del Quiz
+      const preguntas = [
+          {
+              q: "1. En la Programación Orientada a Objetos, ¿qué define exactamente una 'clase'?",
+              opciones: [
+                  "A) Una plantilla abstracta que agrupa atributos y métodos comunes para crear objetos.",
+                  "B) Una instancia concreta con datos específicos en memoria.",
+                  "C) Una función matemática que se ejecuta de manera secuencial.",
+                  "D) Un error de ejecución por indentación."
+              ],
+              respuesta: 0
+          },
+          {
+              q: "2. ¿Cuál es el método especial (conocido como constructor) que se ejecuta automáticamente al instanciar un nuevo objeto en Python?",
+              opciones: [
+                  "A) <code>__constructor__(self)</code>",
+                  "B) <code>__main__()</code>",
+                  "C) <code>start(self)</code>",
+                  "D) <code>__init__(self)</code>"
+              ],
+              respuesta: 3
+          },
+          {
+              q: "3. ¿Qué representa la palabra reservada <code>self</code> dentro de los métodos de una clase en Python?",
+              opciones: [
+                  "A) Una función global que inicializa variables.",
+                  "B) Un decorador que protege los atributos de la clase.",
+                  "C) Una referencia al objeto actual, permitiéndole acceder a sus propios atributos y métodos.",
+                  "D) Indica que el método es estático y no requiere instanciación."
+              ],
+              respuesta: 2
+          },
+          {
+              q: "4. Al definir la clase Alumno, ¿cuál es la diferencia principal entre un atributo de clase (como <code>campus = 'Huatulco'</code>) y un atributo de instancia (como <code>self.nombre</code>)?",
+              opciones: [
+                  "A) El de clase solo lo modifican métodos estáticos; el de instancia, cualquier método.",
+                  "B) El de clase es compartido por todos los objetos; el de instancia es único para cada estudiante.",
+                  "C) Ambos almacenan datos únicos en memoria sin distinción.",
+                  "D) El de instancia se define fuera de los métodos, y el de clase dentro del <code>__init__</code>."
+              ],
+              respuesta: 1
+          },
+          {
+              q: "5. Si tienes definida una clase llamada <code>PolizaSeguro</code> cuyo constructor recibe el 'titular', ¿cuál es la forma correcta de crear (instanciar) un objeto?",
+              opciones: [
+                  "A) <code>mi_poliza = PolizaSeguro.titular('Juan')</code>",
+                  "B) <code>mi_poliza = class PolizaSeguro('Juan')</code>",
+                  "C) <code>PolizaSeguro mi_poliza = new PolizaSeguro('Juan')</code>",
+                  "D) <code>mi_poliza = PolizaSeguro('Juan')</code>"
+              ],
+              respuesta: 3
+          },
+          {
+              q: "6. En Python, ¿qué decorador utilizamos para definir un método que interactúa con la clase en sí (como consultar una lista global de carreras de la universidad) en lugar de interactuar con un objeto individual?",
+              opciones: [
+                  "A) <code>@staticmethod</code>",
+                  "B) <code>@classmethod</code>",
+                  "C) <code>@property</code>",
+                  "D) <code>@override</code>"
+              ],
+              respuesta: 1
+          },
+          {
+              q: "7. Si creamos una clase 'SeguroVida' que asimila y reutiliza automáticamente las características y métodos de una clase base llamada 'PolizaGeneral', ¿qué concepto de la POO estamos aplicando?",
+              opciones: [
+                  "A) Polimorfismo",
+                  "B) Encapsulamiento",
+                  "C) Herencia",
+                  "D) Abstracción"
+              ],
+              respuesta: 2
+          },
+          {
+              q: "8. ¿Cuál es la convención en Python para indicar que un atributo de una clase (por ejemplo, el cálculo de una prima de riesgo) debe considerarse 'privado' y no modificarse directamente desde fuera?",
+              opciones: [
+                  "A) Iniciar el nombre del atributo con un guion bajo (ej. <code>self._prima_riesgo</code>).",
+                  "B) Usar la palabra reservada 'private' antes del atributo.",
+                  "C) Escribir el nombre del atributo completamente en mayúsculas.",
+                  "D) Colocar el atributo fuera de la estructura de la clase."
+              ],
+              respuesta: 0
+          },
+          {
+              q: "9. ¿Cuál de las siguientes afirmaciones describe mejor un error de sintaxis en Python (a diferencia de un error de ejecución en una clase)?",
+              opciones: [
+                  "A) Ocurre cuando la lógica del programa es incorrecta, pero no falla.",
+                  "B) Sucede en tiempo real al intentar dividir un atributo entre cero.",
+                  "C) Ocurre cuando el código no respeta las reglas gramaticales del lenguaje y ni siquiera arranca.",
+                  "D) Es un error que se arregla automáticamente con <code>__init__</code>."
+              ],
+              respuesta: 2
+          },
+          {
+              q: "10. ¿Cuál es uno de los beneficios de integrar el manejo de excepciones (<code>try-except</code>) al asignar valores a los atributos de nuestros objetos?",
+              opciones: [
+                  "A) Permite construir objetos robustos que validan sus datos internos, evitando que el programa colapse por entradas incorrectas.",
+                  "B) Convierte las clases de vuelta a un modelo de programación secuencial.",
+                  "C) Aumenta la velocidad matemática del intérprete de Python.",
+                  "D) Oculta el código fuente de los cálculos actuariales."
+              ],
+              respuesta: 0
+          }
+      ];
+
+      const quizDiv = document.getElementById("quiz");
+
+      // Función para renderizar el quiz
+      preguntas.forEach((pregunta, index) => {
+          let html = `<div class="question">${pregunta.q}</div><div class="options">`;
+          pregunta.opciones.forEach((opcion, i) => {
+              html += `<label><input type="radio" name="p${index}" value="${i}"> ${opcion}</label>`;
+          });
+          html += `</div><hr style="border: 0; border-top: 1px solid #ccc; margin-bottom: 20px;">`;
+          quizDiv.innerHTML += html;
+      });
+
+      // Función para calcular y mostrar resultados
+      function evaluarQuiz() {
+          let puntaje = 0;
+          let todasRespondidas = true;
+
+          preguntas.forEach((pregunta, index) => {
+              const seleccion = document.querySelector(`input[name="p${index}"]:checked`);
+              if (seleccion) {
+                  if (parseInt(seleccion.value) === pregunta.respuesta) {
+                      puntaje++;
+                  }
+              } else {
+                  todasRespondidas = false;
+              }
+          });
+          
+          const contenedorResultado = document.getElementById("resultado");
+          
+          if (!todasRespondidas) {
+              contenedorResultado.style.backgroundColor = "#fff3cd";
+              contenedorResultado.style.color = "#856404";
+              contenedorResultado.innerHTML = "⚠️ Por favor, responde todas las preguntas antes de enviar.";
+              return;
+          }
+
+          contenedorResultado.style.backgroundColor = "#d4edda";
+          contenedorResultado.style.color = "#155724";
+          contenedorResultado.innerHTML = `Tu calificación final es: ${puntaje} de ${preguntas.length}`;
+          
+          if(puntaje === preguntas.length) {
+              contenedorResultado.innerHTML += "<br>¡Excelente trabajo! Dominas la POO en Python.";
+          } else if (puntaje >= 7) {
+              contenedorResultado.innerHTML += "<br>¡Buen trabajo! Tienes bases sólidas.";
+          } else {
+              contenedorResultado.style.backgroundColor = "#f8d7da";
+              contenedorResultado.style.color = "#721c24";
+              contenedorResultado.innerHTML += "<br>Te sugiero repasar los conceptos de Clases y Objetos en las notas.";
+          }
+      }
+      
+      // Footer: Obtenemos la fecha y hora de la última modificación del documento
+      const fechaModificacion = new Date(document.lastModified);
+      const opcionesFecha = { day: '2-digit', month: '2-digit', year: 'numeric' };
+      const fechaFormateada = fechaModificacion.toLocaleDateString('es-ES', opcionesFecha);
+      document.getElementById("ultima-actualizacion").textContent = `Última actualización: ${fechaFormateada}`;
+    </script>
+  </body>
+</html>
