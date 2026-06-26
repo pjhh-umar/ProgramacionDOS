@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../main.js"></script>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          macros: {
+            sen: "\\operatorname{sen}",
+            seg: ["\\overrightarrow{#1}", 1]
+          },
+          tags: "ams" /* this part is for numbered equations */
+        }
+      };
+    </script>
+
+    <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+    </script>
+    
+    <style>
+    .lista{
+        counter-reset: listaCounter 0 sublistaCounter 1 subsublistaCounter 1 subsubsublistaCounter 1;
+    }
+    /* .sublista{
+        counter-reset: sublistaCounter 1  SubsublistaCounter;
+    } */
+    </style>
+
+    <link rel="stylesheet" href="../style.css" />
+
+    <style>
+        :root {
+            --umar-azul: #003366; 
+            --umar-oro: #D4AF37;
+        }
+
+        .ejercicio-box {
+            border: 3px solid var(--umar-azul);
+            border-top: 8px solid var(--umar-oro);
+            border-radius: 8px;
+            background-color: #F8F9FA;
+            padding: 25px;
+            max-width: 900px;
+            margin: 30px auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            color: #333333;
+            font-family: Arial, sans-serif;
+        }
+
+        .ejercicio-box h1.title {
+            color: var(--umar-azul);
+            font-family: 'Oldenburg', cursive;
+        }
+
+        .pregunta-container {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .pregunta-texto {
+            font-weight:600;
+            margin-bottom: 10px;
+            font-size: 85%;
+        }
+
+        .opcion-label {
+            display: block;
+            margin-bottom: 8px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            font-size: 85%;
+            transition: background-color 0.2s;
+        }
+
+        .opcion-label:hover {
+            background-color: #e9ecef;
+        }
+
+        .btn-evaluar {
+            background-color: var(--umar-azul);
+            color: #ffffff;
+            border: 2px solid var(--umar-oro);
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-evaluar:hover {
+            background-color: var(--umar-oro);
+            color: var(--umar-azul);
+        }
+
+        #resultado-box {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e6f2ff;
+            border-left: 5px solid var(--umar-azul);
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+
+        /* Estilos para el Modal de Pantalla Completa */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 51, 102, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            border: 5px solid var(--umar-oro);
+        }
+    </style>
+
+    <title>Programación II</title>
+</head>  
+          
+<body class="fondo-body">
+    
+    <header class="main-header">
+        <div class="logo_superior_umar">
+            <a href="https://www.umar.mx" target="_blank"><img src="../Imagenes/umar_logo_hd.webp" alt="Logo_UMAR" width="110%" height="auto"></a>
+        </div>
+        <div class="contenedor_titulo">
+            <div class="title">Programación II</div>
+            <div class="subtitle">Universidad del Mar, campus Huatulco</div>
+            <div class="subsubtitle">Licenciatura en Actuaría </div>
+        </div>
+        <div class="logo_superior_umar">
+            <a href="https://www.umar.mx" target="_blank"><img src="../Imagenes/umar_logo_hd.webp" alt="Logo_UMAR" width="110%" height="auto"></a>
+        </div>
+    </header>
+
+    <nav class="top-nav">
+        <ul>
+            <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Home.html"> Inicio  </a> </li>
+            <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Informacion_General.html"> Información</a> </li>
+            <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Notas.html"> Notas  </a> </li>
+            <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Practicas.html">Prácticas</a> </li>
+            <li> <a href="https://pjhh-umar.github.io/ProgramacionDOS/Archivos.html">Archivos </a> </li>
+        </ul>
+    </nav>
+          
+    <!-- <div class="info-profesor-box">
+        <div class="title_nombre">Profesor: Pablo Jorge Hernández Hernández</div>
+        <div class="subtitle_nombre">Instituto de Investigación de Matemáticas y Actuaría (IIMA)</div>
+        <div class="subtitle_nombre">Cubículo #5</div>            
+    </div>
+ 
+    <div class="info-box" style="font-family: 'Oldenburg', cursive;">
+        <center><h1 class="title">Temario</h1></center>
+        <ol class="lista">
+            <li><b></b></li>
+            <ol class="sublista">
+                <li></li>
+            </ol>
+        </ol>
+    </div> -->
+
+    <div class="ejercicio-box">
+        <center><h1 class="title">Fundamentos de Programación en Python</h1></center><br>
+        
+        <div id="quiz-container">
+            </div>
+        
+        <button class="btn-evaluar" onclick="evaluarQuiz()">Evaluar Respuestas</button>
+        
+        <div id="resultado-box">
+            </div>
+    </div>
+<!--         
+    <div class="info-box" style="font-family: 'Oldenburg', cursive;">
+        <center><h1 class="title">Bibliografía</h1></center>
+        <ol class="lista">
+            <li><b></b></li>
+            <li><b></b></li>
+            <li><b></b></li>
+        </ol>
+    </div> -->
+
+    <script>
+        const preguntasQuiz = [
+            {
+                id: 1,
+                pregunta: "1. En Python, cuando prevés que un bloque de código puede generar un error,\
+                ¿qué bloque debes utilizar para capturarlo y evitar que tu programa se detenga abruptamente?",
+                opciones: ["try-except", "if-else", "do-while", "catch-finally"],
+                respuestaCorrecta: 0
+            },
+            {
+                id: 2,
+                pregunta: "2. Dentro del manejo de excepciones, ¿qué instrucción se ejecuta siempre al final del proceso,\
+                sin importar si ocurrió o no un error?", 
+                opciones: ["else", "continue", "finally", "raise"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 3,
+                pregunta: "3. Si estás validando que el monto de una póliza no sea negativo y deseas lanzar un error personalizado\
+                intencionalmente si esto ocurre, ¿qué palabra reservada debes usar?",
+                opciones: ["throw", "raise", "except", "error"],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 4,
+                pregunta: "4. Al escribir el código de una función, te equivocas y escribes <code>dev</code> en lugar de <code>def</code>.\
+                ¿Qué tipo de error arrojará el intérprete de Python?",
+                opciones: ["ValueError", "SyntaxError", "TypeError", "NameError"],
+                respuestaCorrecta: 1
+            },
+            /*{
+                id: 5,
+                pregunta: "5. ¿Cuál es la forma correcta de crear una excepción personalizada en Python (por ejemplo, <code>MontoInvalidoError</code>)?",
+                opciones: [
+                    "Creando una función con ese nombre que imprima un mensaje.",
+                    "Definiendo una clase que herede de la clase base Exception.",
+                    "Asignando un mensaje de texto a una variable global llamada MontoInvalidoError.",
+                    "Usando la palabra reservada 'error' seguida del nombre deseado."
+                ],
+                respuestaCorrecta: 1
+            },*/
+            {
+                id: 5,
+                pregunta: "5. En el paradigma de Programación Orientada a Objetos, ¿cuál es la diferencia conceptual principal entre una clase y un objeto?",
+                opciones: [
+                    "Una clase es una variable simple, y un objeto es un conjunto de variables.",
+                    "Una clase es la plantilla teórica, mientras que un objeto es la instancia concreta creada a partir de esa plantilla.",
+                    "Una clase solo puede contener funciones, mientras que un objeto solo contiene datos numéricos.",
+                    "No hay diferencia, en Python son términos sinónimos que se usan indistintamente."
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 6,
+                pregunta: "6. ¿Qué palabra reservada se utiliza en Python para iniciar la definición de una nueva clase?",
+                opciones: ["def", "object", "class", "struct"],
+                respuestaCorrecta: 2
+            },
+            /*{
+                id: 7,
+                pregunta: "7. En la POO con Python, si definimos el método abstracto <code>calcular_prima()</code> en la clase base <code>Poliza</code>, ¿qué implica esto para las subclases como <code>PolizaVida</code> o <code>PolizaAuto</code>?",
+                opciones: [
+                    "Que las subclases no pueden modificar el cálculo de la prima de la clase base.",
+                    "Que el método se ejecutará automáticamente sin necesidad de ser llamado.",
+                    "Que las subclases están obligadas a implementar su propia versión de este método.",
+                    "Que el método solo puede devolver valores abstractos (no numéricos)."
+                ],
+                respuestaCorrecta: 2
+            },*/
+            {
+                id: 7,
+                pregunta: "7. ¿Qué concepto de la POO permite crear una clase <code>PolizaBasica</code> que adquiera automáticamente los atributos definidos previamente en la clase <code>Poliza</code>?",
+                opciones: ["Polimorfismo", "Encapsulamiento", "Herencia", "Abstracción"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 8,
+                pregunta: "8. Al definir los métodos dentro de una clase, ¿cuál es el primer parámetro convencional que siempre se debe incluir para hacer referencia a la instancia específica que está ejecutando la acción?",
+                opciones: ["this", "self", "cls", "init"],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 9,
+                pregunta: "9. ¿Qué es un módulo en Python?",
+                opciones: [
+                    "Es exclusivamente una función matemática predefinida en el lenguaje.",
+                    "Es un archivo con extensión .py que contiene definiciones lógicas y declaraciones reutilizables.",
+                    "Es un bloque de código rodeado por las etiquetas &lt;modulo&gt; y &lt;/modulo&gt;.",
+                    "Es una clase que solo contiene métodos abstractos."
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 10,
+                pregunta: "10. Si tienes un módulo llamado <code>estadistica.py</code> y deseas incorporar todo su contenido \
+                a tu script principal, ¿qué instrucción debes utilizar?",
+                opciones: ["include estadistica", "require estadistica.py", "import estadistica", "using estadistica"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 11,
+                pregunta: "11. Si de un módulo llamado <code>calculos_actuariales</code> solo necesitas utilizar específicamente\
+                la función <code>calcular_reserva()</code>, ¿cuál es la sintaxis más óptima y directa?",
+                opciones: [
+                    "import calcular_reserva from calculos_actuariales",
+                    "from calculos_actuariales import calcular_reserva",
+                    "load calculos_actuariales.calcular_reserva",
+                    "import calculos_actuariales(calcular_reserva)"
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 12,
+                pregunta: "12. ¿Cuál es el propósito de utilizar el comando <code>as</code> al importar un módulo, por ejemplo: \
+                <code>import pandas as pd</code>?",
+                opciones: [
+                    "Verificar que el módulo esté instalado antes de importarlo.",
+                    "Asignar un alias más corto o conveniente para hacer referencia al módulo en el código.",
+                    "Indicar que las funciones del módulo deben ejecutarse de forma asíncrona.",
+                    "Evitar que otros scripts importen el mismo módulo simultáneamente."
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 13,
+                pregunta: "13. En la librería Matplotlib, ¿cuál es el submódulo principal que ofrece una interfaz orientada a estados, \
+                muy similar a la de MATLAB, para crear figuras y ejes?",
+                opciones: ["pylab", "numpy", "pyplot", "matplotlib.graphics"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 14,
+                pregunta: "14. Si ejecutas la instrucción <code>plt.hist(x, bins=100)</code> con Matplotlib, ¿qué tipo de representación visual\
+                estás generando?",
+                opciones: [
+                    "Un diagrama de dispersión de puntos.",
+                    "Un gráfico circular (de pastel).",
+                    "Una línea continua de series de tiempo.",
+                    "Un histograma que muestra la distribución de frecuencias de los datos."
+                ],
+                respuestaCorrecta: 3
+            },
+            {
+                id: 15,
+                pregunta: "15. ¿Qué instrucción suele ser necesaria al final del bloque de código de Matplotlib para forzar que la figura gráfica\
+                 se renderice y aparezca en la pantalla?",
+                opciones: ["plt.show()", "plt.draw()", "plt.render()", "plt.display()"],
+                respuestaCorrecta: 0
+            },
+           /*{
+                id: 18,
+                pregunta: "18. Para trazar una función matemática donde tienes un arreglo de valores en el eje horizontal <code>z</code> \
+                y su evaluación en el eje vertical <code>y</code>,\
+                 ¿qué comando básico de Pyplot empleas?",
+                opciones: ["plt.line(z, y)", "plt.plot(z, y)", "plt.graph(z, y)", "plt.scatter(z, y)"],
+                respuestaCorrecta: 1
+            },*/
+            {
+                id: 16,
+                pregunta: "16. ¿Cuál es el objeto central y más importante que proporciona la biblioteca NumPy para almacenar \
+                y manipular datos de manera eficiente?",
+                opciones: ["DataFrame", "list", "ndarray", "matrix"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 17,
+                pregunta: "17. En el contexto de NumPy, ¿por qué es fundamentalmente preferible usar sus arreglos en lugar \
+                de las listas estándar de Python para simulaciones estocásticas?",
+                opciones: [
+                    "Porque las listas en Python no pueden contener números, solo cadenas de texto.",
+                    "Porque los arreglos de NumPy permiten operaciones matemáticas vectorizadas directamente sobre todos sus elementos a la vez.",
+                    "Porque NumPy incluye una interfaz gráfica para visualizar los resultados automáticamente.",
+                    "Porque los arreglos no consumen memoria RAM del equipo de cómputo."
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 18,
+                pregunta: "18. Si tienes una matriz 2D representada en un arreglo de NumPy y necesitas intercambiar matemáticamente sus filas por sus columnas, ¿qué método debes invocar?",
+                opciones: [".invert()", ".transpose()", ".flip()", ".rotate()"],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 19,
+                pregunta: "19. Al simular pasos aleatorios, utilizamos el código <code>np.random.choice([-1, 1], size=num_pasos)</code>.\
+                ¿Qué comportamiento específico produce esta función?",
+                opciones: [
+                    "Calcula el promedio matemático entre -1 y 1 repetidas veces.",
+                    "Selecciona un elemento al azar de la lista [-1, 1] tantas veces como indique la variable size.",
+                    "Genera una secuencia ordenada que va desde -1 hasta 1.",
+                    "Devuelve siempre el número 1 porque descarta los valores negativos automáticamente."
+                ],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 20,
+                pregunta: "20. En la biblioteca Pandas, ¿cómo se denomina a la estructura de datos bidimensional que simula una hoja de cálculo,\
+                organizando datos heterogéneos en filas y columnas?",
+                opciones: ["Series", "Table", "DataFrame", "Grid"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 21,
+                pregunta: "21. Si los datos de las pólizas y siniestros se encuentran almacenados en un archivo de texto plano separado por punto y coma, \
+                ¿qué función de Pandas emplearías para almacenarlos en memoria y posteriormente utilizarlos?",
+                opciones: ["pd.open_file('ruta')", "pd.read_csv('ruta', sep=';')", "pd.import_excel('ruta')", "pd.load_data('ruta')"],
+                respuestaCorrecta: 1
+            },
+            {
+                id: 22,
+                pregunta: "22. Durante la etapa de limpieza de datos en un DataFrame, encuentras filas que contienen campos nulos o\
+                con la etiqueta NaN. ¿Qué método utilizas para eliminarlas rápidamente del análisis?",
+                opciones: ["df.remove_blanks()", "df.clear_nulls()", "df.dropna()", "df.delete_NaN()"],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 23,
+                pregunta: "23. Una vez que tienes el DataFrame limpio, requieres organizar las pólizas de menor a mayor costo de prima. \
+                ¿Qué método aplicas?",
+                opciones: ["df.sort_values()", "df.order_by()", "df.arrange()", "df.group_by()"],
+                respuestaCorrecta: 0
+            },
+            /*{
+                id: 27,
+                pregunta: "27. En el modelo de la Caminata Aleatoria, ¿cuál es la propiedad matemática que define la naturaleza\
+                caótica del desplazamiento del individuo paso a paso?",
+                opciones: [
+                    "Que la trayectoria siempre termina en el punto de origen si el tiempo tiende a infinito.",
+                    "Que el individuo debe memorizar todos sus movimientos anteriores para decidir el siguiente.",
+                    "Que cada nuevo paso que se da es completamente independiente del paso anterior.",
+                    "Que el individuo siempre avanza en dirección positiva, pero a velocidad variable."
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 26,
+                pregunta: "26. Para rastrear la ruta completa desde el antro hasta la playa de Chahué, el código emplea <code>posicion = np.cumsum(pasos)</code>. ¿Qué operación numérica realiza exactamente esta función de NumPy?",
+                opciones: [
+                    "Suma únicamente el primer y el último valor del arreglo.",
+                    "Calcula la suma total final de todos los elementos, devolviendo un único número entero.",
+                    "Realiza una suma acumulada secuencial, devolviendo un nuevo arreglo con el estado del desplazamiento en cada instante de tiempo.",
+                    "Calcula el valor absoluto de la distancia total recorrida independientemente de la dirección."
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 29,
+                pregunta: "29. En el código del análisis estocástico, ¿por qué es necesario encerrar la simulación de los pasos dentro de un ciclo <code>for _ in range(num_caminatas):</code> con un número grande de iteraciones?",
+                opciones: [
+                    "Para ralentizar deliberadamente la ejecución de la computadora y visualizar los gráficos paso a paso.",
+                    "Para asegurar que el intérprete de Python cargue todos los módulos numéricos correctamente en memoria.",
+                    "Para realizar una aproximación de Montecarlo, ejecutando múltiples escenarios independientes y así estimar probabilísticamente la frecuencia de éxito.",
+                    "Para evitar el error de sintaxis provocado si se intenta generar un arreglo vacío."
+                ],
+                respuestaCorrecta: 2
+            },
+            {
+                id: 30,
+                pregunta: "30. Al documentar matemáticamente los hallazgos de tus simulaciones usando LaTeX, ¿cuáles son los comandos correctos que debes emplear para denotar el operador de medida de probabilidad y la función indicadora, respectivamente?",
+                opciones: [
+                    "$\\mathbb{P}$ y $\\mathds{1}$", 
+                    "$\\text{Prob}$ y $\\text{I}$", 
+                    "$\\mathcal{P}$ y $\\mathbf{1}$", 
+                    "$\\mathds{P}$ y $\\mathbb{1}$"
+                ],
+                respuestaCorrecta: 0
+            }*/
+        ];
+
+        const quizContainer = document.getElementById('quiz-container');
+
+        function cargarQuiz() {
+            preguntasQuiz.forEach((q, index) => {
+                const preguntaDiv = document.createElement('div');
+                preguntaDiv.classList.add('pregunta-container');
+
+                const preguntaTexto = document.createElement('div');
+                preguntaTexto.classList.add('pregunta-texto');
+                preguntaTexto.innerHTML = q.pregunta;
+                preguntaDiv.appendChild(preguntaTexto);
+
+                q.opciones.forEach((opcion, i) => {
+                    const label = document.createElement('label');
+                    label.classList.add('opcion-label');
+                    
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `pregunta_${q.id}`;
+                    radio.value = i;
+
+                    label.appendChild(radio);
+                    label.innerHTML += ` ${opcion}`;
+                    preguntaDiv.appendChild(label);
+                });
+
+                quizContainer.appendChild(preguntaDiv);
+            });
+            
+            // Si MathJax ya está cargado, forzar renderizado de las ecuaciones añadidas
+            if (window.MathJax) {
+                MathJax.typesetPromise();
+            }
+        }
+
+        function evaluarQuiz() {
+            let puntaje = 0;
+            let contestadas = 0;
+            const totalPreguntas = preguntasQuiz.length;
+
+            // 1. Evaluar y bloquear inputs
+            preguntasQuiz.forEach(q => {
+                const seleccion = document.querySelector(`input[name="pregunta_${q.id}"]:checked`);
+                const radios = document.querySelectorAll(`input[name="pregunta_${q.id}"]`);
+                
+                if (seleccion) {
+                    contestadas++;
+                    if (parseInt(seleccion.value) === q.respuestaCorrecta) {
+                        puntaje++;
+                    }
+                }
+                // Bloquea los radio buttons para que no modifiquen respuestas
+                radios.forEach(r => r.disabled = true);
+            });
+
+            // 2. Mostrar Modal
+            const modal = document.getElementById('resultado-modal');
+            const titulo = document.getElementById('modal-titulo');
+            const cuerpo = document.getElementById('modal-cuerpo');
+
+            if (contestadas < totalPreguntas) {
+                alert("⚠️ Por favor, responde todas las preguntas antes de evaluar.");
+                // Desbloqueamos si no se contestaron todas
+                document.querySelectorAll('input[type="radio"]').forEach(r => r.disabled = false);
+                return;
+            }
+
+            const calificacionBase10 = ((puntaje / totalPreguntas) * 10).toFixed(1);
+            
+            titulo.innerText = "Calificación";
+            cuerpo.innerHTML = `Aciertos: ${puntaje} / ${totalPreguntas}<br><strong>Calificación: ${calificacionBase10} / 10.0</strong>`;
+            
+            modal.style.display = 'flex';
+        }
+        function toggleRespuestas() {
+            preguntasQuiz.forEach(q => {
+                const labels = document.querySelectorAll(`input[name="pregunta_${q.id}"]`);
+                labels.forEach((radio, index) => {
+                    const parentLabel = radio.parentElement;
+                    if (index === q.respuestaCorrecta) {
+                        const bgBase = window.getComputedStyle(parentLabel).backgroundColor;
+                        if (bgBase === 'rgb(212, 175, 55)' || parentLabel.style.backgroundColor === 'rgb(212, 175, 55)' || parentLabel.style.backgroundColor === '#D4AF37') {
+                            parentLabel.style.backgroundColor = '';
+                            parentLabel.style.fontWeight = 'normal';
+                        } else {
+                            parentLabel.style.backgroundColor = '#D4AF37'; 
+                            parentLabel.style.fontWeight = 'bold';
+                        }
+                    }
+                });
+            });
+        }
+
+        window.onload = cargarQuiz;
+    </script>
+
+    <div id="resultado-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h1 id="modal-titulo"></h1>
+            <p id="modal-cuerpo" style="font-size: 24px; margin: 20px 0;"></p>
+            <!-- <button class="btn-evaluar" onclick="location.reload()">Recargar para intentar de nuevo</button> -->
+        </div>
+    </div>
+</body>
+</html>
