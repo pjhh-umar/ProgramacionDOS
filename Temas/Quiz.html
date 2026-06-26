@@ -557,7 +557,7 @@
             
             modal.style.display = 'flex';
         }
-        function toggleRespuestas() {
+        /*function toggleRespuestas() {
             preguntasQuiz.forEach(q => {
                 const labels = document.querySelectorAll(`input[name="pregunta_${q.id}"]`);
                 labels.forEach((radio, index) => {
@@ -574,17 +574,64 @@
                     }
                 });
             });
-        }
+        } */
 
         window.onload = cargarQuiz;
+
+function cerrarModalYVerRespuestas() {
+            // 1. Oculta el modal de calificación
+            document.getElementById('resultado-modal').style.display = 'none';
+            
+            // 2. Transforma el botón original del final de la página en el toggle de soluciones
+            const btnPrincipal = document.querySelector('.ejercicio-box .btn-evaluar');
+            btnPrincipal.innerText = "Mostrar/Ocultar Respuestas";
+            btnPrincipal.onclick = toggleRespuestas;
+            
+            // 3. Ejecuta la función por primera vez para revelar las respuestas
+            toggleRespuestas();
+        }
+
+        function toggleRespuestas() {
+            preguntasQuiz.forEach(q => {
+                const radios = document.querySelectorAll(`input[name="pregunta_${q.id}"]`);
+                radios.forEach((radio, index) => {
+                    const parentLabel = radio.parentElement;
+                    
+                    if (index === q.respuestaCorrecta) {
+                        // Lógica de alternancia (toggle) para la respuesta correcta
+                        const bgColor = window.getComputedStyle(parentLabel).backgroundColor;
+                        if (bgColor === 'rgb(212, 175, 55)' || parentLabel.style.backgroundColor === '#D4AF37') {
+                            parentLabel.style.backgroundColor = '';
+                            parentLabel.style.fontWeight = 'normal';
+                        } else {
+                            parentLabel.style.backgroundColor = '#D4AF37'; 
+                            parentLabel.style.fontWeight = 'bold';
+                        }
+                    } else if (radio.checked) {
+                        // Lógica de alternancia para indicar un error del estudiante
+                        const bgColor = window.getComputedStyle(parentLabel).backgroundColor;
+                        if (bgColor === 'rgb(255, 204, 204)' || parentLabel.style.backgroundColor === 'rgb(255, 204, 204)') {
+                            parentLabel.style.backgroundColor = '';
+                        } else {
+                            parentLabel.style.backgroundColor = 'rgb(255, 204, 204)'; 
+                        }
+                    }
+                });
+            });
+        }
+        
     </script>
 
-    <div id="resultado-modal" class="modal-overlay">
+ <div id="resultado-modal" class="modal-overlay">
         <div class="modal-content">
             <h1 id="modal-titulo"></h1>
             <p id="modal-cuerpo" style="font-size: 24px; margin: 20px 0;"></p>
-            <!-- <button class="btn-evaluar" onclick="location.reload()">Recargar para intentar de nuevo</button> -->
+            
+            <button class="btn-evaluar" onclick="cerrarModalYVerRespuestas()">Mostrar/Ocultar Respuestas</button>
+            
+            <button class="btn-evaluar" onclick="location.reload()" style="background-color: #666; border-color: #444; margin-top: 10px;">Recargar para intentar de nuevo</button>
         </div>
     </div>
+
 </body>
 </html>
